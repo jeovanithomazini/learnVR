@@ -6,8 +6,14 @@
 package swing;
 
 import java.awt.Color;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.text.html.CSS;
 
 /**
  *
@@ -15,11 +21,11 @@ import javax.swing.JPanel;
  */
 public class JFMain extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+    private JPanel contentPane;
+
     public JFMain() {
         initComponents();
+        PrepararCompoenentes();
     }
 
     /**
@@ -32,7 +38,7 @@ public class JFMain extends javax.swing.JFrame {
     private void initComponents() {
 
         jpMenu = new javax.swing.JPanel();
-        btnCurso = new javax.swing.JPanel();
+        btnCursos = new javax.swing.JPanel();
         jpCursorCurso = new javax.swing.JPanel();
         jlCurso = new javax.swing.JLabel();
         btnDisciplinas = new javax.swing.JPanel();
@@ -53,10 +59,10 @@ public class JFMain extends javax.swing.JFrame {
 
         jpMenu.setBackground(new java.awt.Color(23, 35, 51));
 
-        btnCurso.setBackground(new java.awt.Color(41, 57, 80));
-        btnCurso.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCursos.setBackground(new java.awt.Color(41, 57, 80));
+        btnCursos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnCursoMousePressed(evt);
+                btnCursosMousePressed(evt);
             }
         });
 
@@ -77,20 +83,20 @@ public class JFMain extends javax.swing.JFrame {
         jlCurso.setForeground(new java.awt.Color(255, 255, 255));
         jlCurso.setText("Cursos");
 
-        javax.swing.GroupLayout btnCursoLayout = new javax.swing.GroupLayout(btnCurso);
-        btnCurso.setLayout(btnCursoLayout);
-        btnCursoLayout.setHorizontalGroup(
-            btnCursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnCursoLayout.createSequentialGroup()
+        javax.swing.GroupLayout btnCursosLayout = new javax.swing.GroupLayout(btnCursos);
+        btnCursos.setLayout(btnCursosLayout);
+        btnCursosLayout.setHorizontalGroup(
+            btnCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnCursosLayout.createSequentialGroup()
                 .addComponent(jpCursorCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jlCurso)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        btnCursoLayout.setVerticalGroup(
-            btnCursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btnCursosLayout.setVerticalGroup(
+            btnCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jpCursorCurso, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-            .addGroup(btnCursoLayout.createSequentialGroup()
+            .addGroup(btnCursosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jlCurso)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -104,6 +110,7 @@ public class JFMain extends javax.swing.JFrame {
         });
 
         jpCursorDisciplina.setBackground(new java.awt.Color(255, 255, 255));
+        jpCursorDisciplina.setOpaque(false);
         jpCursorDisciplina.setPreferredSize(new java.awt.Dimension(3, 43));
 
         javax.swing.GroupLayout jpCursorDisciplinaLayout = new javax.swing.GroupLayout(jpCursorDisciplina);
@@ -147,6 +154,7 @@ public class JFMain extends javax.swing.JFrame {
         });
 
         jpCursorProfessores.setBackground(new java.awt.Color(255, 255, 255));
+        jpCursorProfessores.setOpaque(false);
         jpCursorProfessores.setPreferredSize(new java.awt.Dimension(3, 43));
 
         javax.swing.GroupLayout jpCursorProfessoresLayout = new javax.swing.GroupLayout(jpCursorProfessores);
@@ -190,6 +198,7 @@ public class JFMain extends javax.swing.JFrame {
         });
 
         jpCursorAlunos.setBackground(new java.awt.Color(255, 255, 255));
+        jpCursorAlunos.setOpaque(false);
         jpCursorAlunos.setPreferredSize(new java.awt.Dimension(3, 43));
 
         javax.swing.GroupLayout jpCursorAlunosLayout = new javax.swing.GroupLayout(jpCursorAlunos);
@@ -229,7 +238,7 @@ public class JFMain extends javax.swing.JFrame {
         jpMenu.setLayout(jpMenuLayout);
         jpMenuLayout.setHorizontalGroup(
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnDisciplinas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -238,7 +247,7 @@ public class JFMain extends javax.swing.JFrame {
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMenuLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(btnCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(btnDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
@@ -269,20 +278,26 @@ public class JFMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCursoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCursoMousePressed
-        ClickButon(btnCurso,jpCursorCurso);
-    }//GEN-LAST:event_btnCursoMousePressed
+    private void PrepararCompoenentes() {
+        btnCursos.setName("btnCursos");
+        btnDisciplinas.setName("btnDisciplinas");
+        btnProfessores.setName("btnProfessores");
+        btnAlunos.setName("btnAlunos");
+    }
+    private void btnCursosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCursosMousePressed
+        ClickButon(btnCursos, jpCursorCurso);
+    }//GEN-LAST:event_btnCursosMousePressed
 
     private void btnDisciplinasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDisciplinasMousePressed
-        ClickButon(btnDisciplinas,jpCursorDisciplina);        
+        ClickButon(btnDisciplinas, jpCursorDisciplina);
     }//GEN-LAST:event_btnDisciplinasMousePressed
 
     private void btnProfessoresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfessoresMousePressed
-        ClickButon(btnProfessores,jpCursorProfessores);
+        ClickButon(btnProfessores, jpCursorProfessores);
     }//GEN-LAST:event_btnProfessoresMousePressed
 
     private void btnAlunosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlunosMousePressed
-        ClickButon(btnAlunos,jpCursorAlunos);
+        ClickButon(btnAlunos, jpCursorAlunos);
     }//GEN-LAST:event_btnAlunosMousePressed
 
     /**
@@ -317,35 +332,36 @@ public class JFMain extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFMain frame = new JFMain();
-		frame.setVisible(true);					
+                frame.setVisible(true);
             }
         });
     }
-    
-    private void ClickButon(JPanel Buton, JPanel Cursor){
+
+    private void ClickButon(JPanel Buton, JPanel Cursor) {
         resetAllButons();
         setColor(Buton);
         setOpaque(Cursor);
+        ChamarTela(Buton);
     }
-    
-    private void setColor(JPanel Panel){
-        Panel.setBackground(new Color(41,57,80));
+
+    private void setColor(JPanel Panel) {
+        Panel.setBackground(new Color(41, 57, 80));
     }
-    
-    private void resetColor(JPanel Panel){
-        Panel.setBackground(new Color(23,35,51));
+
+    private void resetColor(JPanel Panel) {
+        Panel.setBackground(new Color(23, 35, 51));
     }
-    
-    private void setOpaque(JPanel Panel){
+
+    private void setOpaque(JPanel Panel) {
         Panel.setOpaque(true);
     }
-    
-    private void resetOpaque(JPanel Panel){
+
+    private void resetOpaque(JPanel Panel) {
         Panel.setOpaque(false);
     }
-    
-    private void resetAllButons(){
-        resetColor(btnCurso);
+
+    private void resetAllButons() {
+        resetColor(btnCursos);
         resetColor(btnProfessores);
         resetColor(btnAlunos);
         resetColor(btnDisciplinas);
@@ -354,11 +370,47 @@ public class JFMain extends javax.swing.JFrame {
         resetOpaque(jpCursorProfessores);
         resetOpaque(jpCursorAlunos);
     }
-    
+
+    private void ChamarTela(JPanel Panel) {
+        jpShow.removeAll();
+        javax.swing.JInternalFrame TelaShow = new javax.swing.JInternalFrame();
+
+        switch (Panel.getName()) {
+            case "btnCursos":
+                JIFCursosQuery jifCursos = new JIFCursosQuery();
+                TelaShow = jifCursos;
+                break;
+            case "btnDisciplinas":
+                JIFDisciplinasQuery jifDisciplinas = new JIFDisciplinasQuery();
+                TelaShow = jifDisciplinas;
+                break;
+            case "btnProfessores":
+                JIFProfessoresQuery jifProfessores = new JIFProfessoresQuery();
+                TelaShow = jifProfessores;
+                break;
+            case "btnAlunos":
+                JIFAlunosQuery jifAlunos = new JIFAlunosQuery();
+                TelaShow = jifAlunos;
+                break;
+        }
+        
+        try {
+            jpShow.add(TelaShow);
+            ((BasicInternalFrameUI) TelaShow.getUI()).setNorthPane(null);
+            TelaShow.setVisible(true);
+            TelaShow.setMaximum(true);
+            TelaShow.setBorder(null);
+            TelaShow.setSelected(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(JFMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnAlunos;
-    private javax.swing.JPanel btnCurso;
+    private javax.swing.JPanel btnCursos;
     private javax.swing.JPanel btnDisciplinas;
     private javax.swing.JPanel btnProfessores;
     private javax.swing.JLabel jlAlunos;
