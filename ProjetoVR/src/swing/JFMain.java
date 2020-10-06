@@ -426,6 +426,8 @@ public class JFMain extends javax.swing.JFrame {
             TelaShow.setMaximum(true);
             TelaShow.setBorder(null);
             TelaShow.setSelected(true);
+            TelaShow.getContentPane().setBackground(new Color(71,120,197));
+            
         } catch (PropertyVetoException ex) {
             Logger.getLogger(JFMain.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -5,6 +5,9 @@
  */
 package swing;
 
+import java.awt.Color;
+import java.util.Locale;
+
 /**
  *
  * @author Jeovani Thomazini
@@ -27,45 +30,88 @@ public class JIFProfessoresQuery extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtblPesquisa = new javax.swing.JTable();
+        jbtnIncluir = new javax.swing.JButton();
+        jbtnEditar = new javax.swing.JButton();
+        jbtnExcluir = new javax.swing.JButton();
+        jbtnPesquisa = new javax.swing.JButton();
+        jlTela = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 0));
+        setBackground(new java.awt.Color(71, 120, 197));
+        setPreferredSize(new java.awt.Dimension(790, 520));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jtblPesquisa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jtblPesquisa);
 
-        jLabel1.setText("Professores");
+        jbtnIncluir.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_add_32px_9.png"))); // NOI18N
+        jbtnIncluir.setText("Incluir");
+        jbtnIncluir.setHideActionText(true);
+
+        jbtnEditar.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_edit_32px.png"))); // NOI18N
+        jbtnEditar.setText("Editar");
+
+        jbtnExcluir.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_delete_32px.png"))); // NOI18N
+        jbtnExcluir.setText("Excluir");
+
+        jbtnPesquisa.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_search_32px.png"))); // NOI18N
+        jbtnPesquisa.setText("Pesquisar");
+
+        jlTela.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jlTela.setText("> Alunos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(474, Short.MAX_VALUE)
+                .addComponent(jbtnIncluir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtnEditar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtnExcluir)
+                .addGap(9, 9, 9))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
-                .addContainerGap(225, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jlTela)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtnPesquisa)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(75, 75, 75)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jbtnPesquisa))
+                    .addComponent(jlTela))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnEditar)
+                    .addComponent(jbtnExcluir))
+                .addContainerGap())
         );
 
         pack();
@@ -73,7 +119,12 @@ public class JIFProfessoresQuery extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbtnEditar;
+    private javax.swing.JButton jbtnExcluir;
+    private javax.swing.JButton jbtnIncluir;
+    private javax.swing.JButton jbtnPesquisa;
+    private javax.swing.JLabel jlTela;
+    private javax.swing.JTable jtblPesquisa;
     // End of variables declaration//GEN-END:variables
 }
