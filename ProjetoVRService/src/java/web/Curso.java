@@ -118,13 +118,7 @@ public class Curso implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Curso)) {
-            return false;
-        }
-        Curso other = (Curso) object;
-        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
-            return false;
-        }
+      
         return true;
     }
 

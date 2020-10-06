@@ -43,22 +43,22 @@ public class CursoFacadeREST extends AbstractFacade<Curso> {
     }
 
     @PUT
-    @Path("{codigo}")
+    @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("codigo") Long id, Curso entity) {
+    public void edit(@PathParam("id") Long id, Curso entity) {
         super.edit(entity);
     }
 
     @DELETE
-    @Path("/delete/{codigo}")
-    public void remove(@PathParam("codigo") Long id) {
+    @Path("{id}")
+    public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
 
     @GET
-    @Path("{codigo}")
+    @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Curso find(@PathParam("codigo") Long id) {
+    public Curso find(@PathParam("id") Long id) {
         return super.find(id);
     }
 

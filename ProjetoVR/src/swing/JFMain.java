@@ -56,7 +56,6 @@ public class JFMain extends javax.swing.JFrame {
         jpCursorAlunos = new javax.swing.JPanel();
         jlAlunos = new javax.swing.JLabel();
         jpShow = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(71, 120, 197));
@@ -268,28 +267,15 @@ public class JFMain extends javax.swing.JFrame {
         jpShow.setBackground(new java.awt.Color(71, 120, 197));
         jpShow.setName(""); // NOI18N
 
-        jToggleButton1.setText("jToggleButton1");
-        jToggleButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jToggleButton1KeyPressed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jpShowLayout = new javax.swing.GroupLayout(jpShow);
         jpShow.setLayout(jpShowLayout);
         jpShowLayout.setHorizontalGroup(
             jpShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpShowLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(jToggleButton1)
-                .addContainerGap(583, Short.MAX_VALUE))
+            .addGap(0, 790, Short.MAX_VALUE)
         );
         jpShowLayout.setVerticalGroup(
             jpShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpShowLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jToggleButton1)
-                .addContainerGap(377, Short.MAX_VALUE))
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         getContentPane().add(jpShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 790, 520));
@@ -316,19 +302,8 @@ public class JFMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProfessoresMousePressed
 
     private void btnAlunosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlunosMousePressed
-        //ClickButon(btnAlunos, jpCursorAlunos);
-           boolean a;
-        try {
-            a = conecta("123");    
-        } catch (Exception e) {
-        }
+        ClickButon(btnAlunos, jpCursorAlunos);        
     }//GEN-LAST:event_btnAlunosMousePressed
-
-    private void jToggleButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jToggleButton1KeyPressed
-    
-           
-        
-    }//GEN-LAST:event_jToggleButton1KeyPressed
     
     
     public boolean conecta(String ip) throws Exception {
@@ -463,7 +438,6 @@ public class JFMain extends javax.swing.JFrame {
     private javax.swing.JPanel btnCursos;
     private javax.swing.JPanel btnDisciplinas;
     private javax.swing.JPanel btnProfessores;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel jlAlunos;
     private javax.swing.JLabel jlCurso;
     private javax.swing.JLabel jlDisciplina;
