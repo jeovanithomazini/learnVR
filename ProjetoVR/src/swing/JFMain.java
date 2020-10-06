@@ -5,8 +5,16 @@
  */
 package swing;
 
+import Entidades.Aluno;
+import Entidades.Curso;
 import java.awt.Color;
 import java.beans.PropertyVetoException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,8 +23,12 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Spring;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-import javax.swing.text.html.CSS;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 
 
 /**
@@ -56,6 +68,7 @@ public class JFMain extends javax.swing.JFrame {
         jpCursorAlunos = new javax.swing.JPanel();
         jlAlunos = new javax.swing.JLabel();
         jpShow = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(71, 120, 197));
@@ -267,15 +280,28 @@ public class JFMain extends javax.swing.JFrame {
         jpShow.setBackground(new java.awt.Color(71, 120, 197));
         jpShow.setName(""); // NOI18N
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpShowLayout = new javax.swing.GroupLayout(jpShow);
         jpShow.setLayout(jpShowLayout);
         jpShowLayout.setHorizontalGroup(
             jpShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+            .addGroup(jpShowLayout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(jButton1)
+                .addContainerGap(570, Short.MAX_VALUE))
         );
         jpShowLayout.setVerticalGroup(
             jpShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(jpShowLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jButton1)
+                .addContainerGap(401, Short.MAX_VALUE))
         );
 
         getContentPane().add(jpShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 790, 520));
@@ -304,7 +330,16 @@ public class JFMain extends javax.swing.JFrame {
     private void btnAlunosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlunosMousePressed
         ClickButon(btnAlunos, jpCursorAlunos);        
     }//GEN-LAST:event_btnAlunosMousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+            //URL url = new URL("http://localhost:8080/ProjetoVRService/webresources/web.curso/11");
+     
+
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
     
+     
     
     public boolean conecta(String ip) throws Exception {
         try {
@@ -440,6 +475,7 @@ public class JFMain extends javax.swing.JFrame {
     private javax.swing.JPanel btnCursos;
     private javax.swing.JPanel btnDisciplinas;
     private javax.swing.JPanel btnProfessores;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jlAlunos;
     private javax.swing.JLabel jlCurso;
     private javax.swing.JLabel jlDisciplina;
